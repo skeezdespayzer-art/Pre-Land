@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATTENTION! Exclusive Live Access</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* ТАЙМЕР */
+        #timer-container {
+            font-size: 3em;
+            font-weight: bold;
+            color: #FF0000;
+            margin-bottom: 20px;
+            animation: pulse 1s infinite;
+        }
+
+        /* ЗАГОЛОВОК */
+        h1 {
+            color: #FFD700;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            min-height: 40px; 
+        }
+        
+        /* КНОПКА */
+        .blinking-button {
+            background-color: #FF0000;
+            border: 5px solid #FFD700;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 30px;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+            animation: blinker 0.5s linear infinite;
+        }
+        
+        /* АНИМАЦИИ КНОПКИ/ТАЙМЕРА */
+        @keyframes blinker {
+            50% {
+                background-color: #FFD700;
+                border-color: #FF0000;
+                color: #000;
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* КАРУСЕЛЬ ФОТОК (CSS SLIDER) */
+        .slider-container {
+            width: 90%;
+            max-width: 400px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            border: 5px solid #FF0000;
+            height: 450px; 
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            opacity: 0;
+            animation: slide-fade 24s infinite; /* 24s = 8 фото * 3s */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* ЗАДАЕМ ПЕРЕРЫВЫ ДЛЯ КАЖДОГО ФОТО (СМЕНА КАЖДЫЕ 3 СЕК) */
+        /* === ВАЖНО: ЗАМЕНИТЬ URL В ЭТОМ БЛОКЕ! === */
+        .slide:nth-child(1) {
+            background-image: url('https://github.com/skeezdespayzer-art/Pre-Land/blob/1220a3c76a45951c399bb6402db50e02d6ef680f/prev1.1.jpg');
+            animation-delay: 0s;
+        }
+        .slide:nth-child(2) {
+            background-image: url('https://github.com/skeezdespayzer-art/Pre-Land/blob/1220a3c76a45951c399bb6402db50e02d6ef680f/%D0%BD%D0%BE%D0%B2%D0%BE%D0%B5%D0%BF%D1%80%D0%B5%D0%B2%D1%8C%D1%8E9.jpg');
+            animation-delay: 3s;
+        }
+        .slide:nth-child(3) {
+            background-image: url('https://github.com/skeezdespayzer-art/Pre-Land/blob/1220a3c76a45951c399bb6402db50e02d6ef680f/%D0%BD%D0%BE%D0%B2%D0%BE%D0%B5%D0%BF%D1%80%D0%B5%D0%B2%D1%8C%D1%8E8.jpg');
+            animation-delay: 6s;
+        }
+        .slide:nth-child(4) {
+            background-image: url('https://github.com/skeezdespayzer-art/Pre-Land/blob/1220a3c76a45951c399bb6402db50e02d6ef680f/%D0%BD%D0%BE%D0%B2%D0%BE%D0%B5%D0%BF%D1%80%D0%B5%D0%B2%D1%8C%D1%8E4.jpg');
+            animation-delay: 9s;
+        }
+        .slide:nth-child(5) {
+            background-image: url('https://github.com/skeezdespayzer-art/Pre-Land/blob/1220a3c76a45951c399bb6402db50e02d6ef680f/%D0%BD%D0%BE%D0%B2%D0%BE%D0%B5%D0%BF%D1%80%D0%B5%D0%B2%D1%8C%D1%8E10.jpg');
+            animation-delay: 12s;
+        }
+        .slide:nth-child(6) {
+            background-image: url('https://github.com/skeezdespayzer-art/Pre-Land/blob/1220a3c76a45951c399bb6402db50e02d6ef680f/%D0%BD%D0%BE%D0%B2%D0%BE%D0%B5%D0%BF%D1%80%D0%B5%D0%B2%D1%8C%D1%8E1.jpg');
+            animation-delay: 15s;
+        }
+        .slide:nth-child(7) {
+            background-image: url('https://github.com/skeezdespayzer-art/Pre-Land/blob/1220a3c76a45951c399bb6402db50e02d6ef680f/prev2var1.jpg');
+            animation-delay: 18s;
+        }
+        .slide:nth-child(8) {
+            background-image: url('https://github.com/skeezdespayzer-art/Pre-Land/blob/1220a3c76a45951c399bb6402db50e02d6ef680f/%D0%9D%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%9F%D1%80%D0%B5%D0%B2%D1%8C%D1%8E%205.jpg');
+            animation-delay: 21s;
+        }
+
+        /* АНИМАЦИЯ СМЕНЫ ФОТО (12.5% цикла на фото) */
+        @keyframes slide-fade {
+            0% { opacity: 0; }
+            1% { opacity: 1; }  /* Появляется */
+            11.5% { opacity: 1; } /* Держится */
+            12.5% { opacity: 0; } /* Исчезает */
+            100% { opacity: 0; }
+        }
+        
+        .disclaimer {
+            font-size: 0.8em;
+            color: #AAA;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1 id="main-headline">🚨 STOP! HER PRIVATE CHAT IS OPEN NOW! 🚨</h1>
+    
+    <p style="font-size: 1.2em; color: #FFAAAA;">21+ Verified Users Access Only.</p>
+
+    <div id="timer-container">02:00</div>
+
+    <div class="slider-container">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+    </div>
+    
+    <a href="ВАША_GLOBAL_SMARTLINK_СЮДА" id="main-button" class="blinking-button">
+        YES! START FREE PRIVATE CHAT
+    </a>
+
+    <div class="disclaimer">
+        *Access is limited to users 21 years or older. Registration is free.
+    </div>
+
+<script>
+    // === СКРИПТ 1: ТАЙМЕР ===
+    let duration = 60 * 2; 
+    const display = document.querySelector('#timer-container');
+
+    function startTimer(duration, display) {
+        let timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                timer = 0; 
+                display.style.color = '#777'; 
+            }
+        }, 1000);
+    }
+    window.onload = function () {
+        startTimer(duration, display);
+    };
+
+    // === СКРИПТ 2: ПЕРЕВОД ПО ЯЗЫКУ БРАУЗЕРА ===
+    const userLang = navigator.language || navigator.userLanguage;
+    const langCode = userLang.substring(0, 2).toLowerCase();
+
+    const translations = {
+        // Germany / German
+        'de': {
+            headline: "🚨 HALT! IHR PRIVATCHAT IST JETZT OFFEN! 🚨",
+            button: "JA! PRIVATEN CHAT KOSTENLOS STARTEN"
+        },
+        // France / French
+        'fr': {
+            headline: "🚨 STOP! SON CHAT PRIVÉ EST OUVERT! 🚨",
+            button: "OUI! COMMENCEZ LE CHAT PRIVÉ GRATUIT"
+        },
+        // Sweden / Swedish
+        'sv': {
+            headline: "🚨 STOPP! HENNES PRIVATCHATT ÄR ÖPPEN! 🚨",
+            button: "JA! STARTA GRATIS PRIVATCHATT NU"
+        }
+        // Английский (EN) - По умолчанию
+    };
+
+    if (translations[langCode]) {
+        document.getElementById('main-headline').textContent = translations[langCode].headline;
+        document.getElementById('main-button').textContent = translations[langCode].button;
+    }
+</script>
+
+</body>
+</html>
