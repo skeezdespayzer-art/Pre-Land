@@ -87,42 +87,42 @@
             background-position: center;
         }
 
-     /* ЗАДАЕМ ПЕРЕРЫВЫ ДЛЯ КАЖДОГО ФОТО (СМЕНА КАЖДЫЕ 3 СЕК) */
-        /* === ВАШИ ТОЧНЫЕ НАЗВАНИЯ ФАЙЛОВ === */
+        /* ЗАДАЕМ ПЕРЕРЫВЫ ДЛЯ КАЖДОГО ФОТО (СМЕНА КАЖДЫЕ 3 СЕК) */
+        /* === ВАШИ ТОЧНЫЕ НАЗВАНИЯ ФАЙЛОВ В СЛУЧАЙНОМ ПОРЯДКЕ === */
         .slide:nth-child(1) {
-            background-image: url('новоепревью4.jpg'); /* 5-е фото в списке */
+            background-image: url('новоепревью4.jpg'); /* ВАШЕ 5-е ФОТО */
             animation-delay: 0s;
         }
         .slide:nth-child(2) {
-            background-image: url('prev1.1.jpg'); /* 1-е фото в списке */
+            background-image: url('prev1.1.jpg'); /* ВАШЕ 1-е ФОТО */
             animation-delay: 3s;
         }
         .slide:nth-child(3) {
-            background-image: url('Новое Превью 5.jpg'); /* 3-е фото в списке (ВНИМАНИЕ НА РЕГИСТР И ПРОБЕЛ) */
+            background-image: url('Новое Превью 5.jpg'); /* ВАШЕ 3-е ФОТО (ВНИМАНИЕ НА РЕГИСТР И ПРОБЕЛ) */
             animation-delay: 6s;
         }
         .slide:nth-child(4) {
-            background-image: url('новоепревью1.jpg'); /* 7-е фото в списке */
+            background-image: url('новоепревью1.jpg'); /* ВАШЕ 7-е ФОТО */
             animation-delay: 9s;
         }
         .slide:nth-child(5) {
-            background-image: url('prev2var1.jpg'); /* 2-е фото в списке */
+            background-image: url('prev2var1.jpg'); /* ВАШЕ 2-е ФОТО */
             animation-delay: 12s;
         }
         .slide:nth-child(6) {
-            background-image: url('новоепревью9.jpg'); /* 6-е фото в списке */
+            background-image: url('новоепревью9.jpg'); /* ВАШЕ 6-е ФОТО */
             animation-delay: 15s;
         }
         .slide:nth-child(7) {
-            background-image: url('новоепревью8.jpg'); /* 8-е фото в списке */
+            background-image: url('новоепревью8.jpg'); /* ВАШЕ 8-е ФОТО */
             animation-delay: 18s;
         }
         .slide:nth-child(8) {
-            background-image: url('новоепревью10.jpg'); /* 4-е фото в списке */
+            background-image: url('новоепревью10.jpg'); /* ВАШЕ 4-е ФОТО */
             animation-delay: 21s;
         }
 
-        /* АНИМАЦИЯ СМЕНЫ ФОТО (12.5% цикла на фото) */
+        /* АНИМАЦИЯ СМЕНЫ ФОТО */
         @keyframes slide-fade {
             0% { opacity: 0; }
             1% { opacity: 1; }  /* Появляется */
@@ -141,7 +141,7 @@
 </head>
 <body>
 
-    <h1 id="main-headline">🚨 STOP! HER PRIVATE CHAT IS OPEN NOW! 🚨</h1>
+    <h1 id="main-headline">🚨 FINAL ACCESS! VIEW PHOTOS & CHAT LIVE! 🚨</h1>
     
     <p style="font-size: 1.2em; color: #FFAAAA;">21+ Verified Users Access Only.</p>
 
@@ -159,7 +159,7 @@
     </div>
     
     <a href="https://justlovedates.com/tds/ae?tdsId=s8403sid_r&tds_campaign=s8403sid&s1=int&utm_source=int&utm_sub=opnfnl&utm_term=bn&affid=dba65811&subid={subid}&subid2={subid2}&clickid={clickid}" id="main-button" class="blinking-button">
-        YES! START FREE PRIVATE CHAT
+        YES! START FREE PHOTOS & CHAT ACCESS
     </a>
 
     <div class="disclaimer">
@@ -192,35 +192,47 @@
         startTimer(duration, display);
     };
 
-    // === СКРИПТ 2: ПЕРЕВОД ПО ЯЗЫКУ БРАУЗЕРА ===
+    // === СКРИПТ 2: ПЕРЕВОД ПО ЯЗЫКУ БРАУЗЕРА (ДВОЙНЫЕ ПРИЗЫВЫ) ===
     const userLang = navigator.language || navigator.userLanguage;
     const langCode = userLang.substring(0, 2).toLowerCase();
 
     const translations = {
+        // Russian / Русский (ФОТО И ЛИЧНЫЙ ЧАТ)
+        'ru': {
+            headline: "🚨 УСПЕЙ! ФОТО И ЛИЧНЫЙ ЧАТ — БЕЗ ЦЕНЗУРЫ! 🚨",
+            button: "ДА! ДОСТУП К ФОТО И ЧАТУ БЕСПЛАТНО"
+        },
         // Germany / German
         'de': {
-            headline: "🚨 HALT! IHR PRIVATCHAT IST JETZT OFFEN! 🚨",
-            button: "JA! PRIVATEN CHAT KOSTENLOS STARTEN"
+            headline: "🚨 LETZTER ZUGANG! FOTOS & LIVE-CHAT! 🚨",
+            button: "JA! KOSTENЛОСЕР ZUGANG ZU FOTOS & CHAT"
         },
         // France / French
         'fr': {
-            headline: "🚨 STOP! SON CHAT PRIVÉ EST OUVERT! 🚨",
-            button: "OUI! COMMENCEZ LE CHAT PRIVÉ GRATUIT"
+            headline: "🚨 ACCÈS FINAL! PHOTOS ET CHAT EN DIRECT! 🚨",
+            button: "OUI! ACCÈS GRATUIT AUX PHOTOS ET AU CHAT"
         },
         // Sweden / Swedish
         'sv': {
-            headline: "🚨 STOPP! HENNES PRIVATCHATT ÄR ÖPPEN! 🚨",
-            button: "JA! STARTA GRATIS PRIVATCHATT NU"
+            headline: "🚨 SISTA CHANSEN! FOTO OCH LIVE-CHATT! 🚨",
+            button: "JA! GRATIS ÅTKOMST TILL FOTO OCH CHATT"
         }
-        // Английский (EN) - По умолчанию
     };
 
-    if (translations[langCode]) {
-        document.getElementById('main-headline').textContent = translations[langCode].headline;
-        document.getElementById('main-button').textContent = translations[langCode].button;
-    }
+    // Текст по умолчанию для языков, не входящих в список (EN)
+    const defaultHeadline = "🚨 FINAL ACCESS! VIEW PHOTOS & CHAT LIVE! 🚨";
+    const defaultButtonText = "YES! START FREE PHOTOS & CHAT ACCESS";
+
+    // Установка текста
+    document.getElementById('main-headline').textContent = translations[langCode]?.headline || defaultHeadline;
+    document.getElementById('main-button').textContent = translations[langCode]?.button || defaultButtonText;
+    
+    // Обновляем текст, который не переводится JS:
+    document.querySelector('p[style*="FFAAAA"]').textContent = "21+ Verified Users Access Only.";
+
 </script>
 
 </body>
 </html>
+
 
