@@ -10,7 +10,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-47RJPBEPPQ');
     </script>
     <style>
@@ -121,7 +120,7 @@
             z-index: 1000;
             opacity: 0;
             visibility: hidden; 
-            transition: opacity 0.5s, visibility 0.5s; 
+            transition: opacity 0.3s, visibility 0.3s; 
             border: 1px solid #AAA;
         }
         #chat-popup.show { opacity: 1; visibility: visible; }
@@ -207,14 +206,14 @@
             button: "JA! KOSTENLOSER ZUGANG ZU VIDEO & CHAT",
             safety: "100% KOSTENLOS, KEINE WERBUNG ODER VIREN", 
             chat_msg_name: "Hey! Ich bin Emily. Ich warte schon im Privat-Chat auf dich... 🔞",
-            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>VERSPRICH MIR:</span><br><b>Bestätige unbedingt deine E-Mail</b> nach der Anmeldung, sonst öffnet das System unseren Chat nicht. Я хочу прислать тебе свои личные фото! ❤️"
+            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>VERSPRICH MIR:</span><br><b>Bestätige deine E-Mail</b>, sonst öffnet das System unseren Chat nicht. Ich schicke dir meine privaten Fotos! ❤️"
         },
         'fr': {
             headline: "🚨 ACCÈS FINAL! VIDÉO ET CHAT EN DIRECT! 🚨",
             button: "OUI! ACCÈS GRATUIT AUX VIDÉOS ET AU CHAT",
             safety: "100% GRATUIT, SANS PUB ET SANS VIRUS", 
             chat_msg_name: "Salut! Je suis Emily. Je t'attends déjà en privé... 🔞",
-            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>PROMETS-MOI:</span><br><b>Confirme ton email</b> après l'inscription, sinon le système n'ouvrira не notre chat. Je veux t'envoyer mes photos privées! ❤️"
+            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>PROMETS-MOI:</span><br><b>Confirme ton email</b>, sinon le système n'ouvrira не notre chat. Je veux t'envoyer mes photos privées! ❤️"
         }
     };
 
@@ -222,20 +221,19 @@
     const defaultButtonText = "YES! START FREE VIDEO & CHAT ACCESS";
     const defaultSafetyText = "100% FREE, NO ADS OR VIRUSES GUARANTEED"; 
     const defaultChatMessage = "Hey! I'm Emily. I'm waiting for you in private... 🔞";
-    const defaultConfirm = "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>PROMISE ME:</span><br><b>Confirm your email</b> after registration, otherwise the system won't open our chat. ❤️";
+    const defaultConfirm = "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>PROMISE ME:</span><br><b>Confirm your email</b>, otherwise the system won't open our chat. ❤️";
 
     document.getElementById('main-headline').textContent = translations[langCode]?.headline || defaultHeadline;
     document.getElementById('main-button').textContent = translations[langCode]?.button || defaultButtonText;
     document.getElementById('safety-guarantee').textContent = translations[langCode]?.safety || defaultSafetyText;
-    document.querySelector('p[style*="FFAAAA"]').textContent = "21+ Verified Users Access Only.";
-
+    
     const chatPopup = document.getElementById('chat-popup');
     const chatMessage = document.getElementById('chat-message');
     const finalMessage = translations[langCode]?.chat_msg_name || defaultChatMessage;
     const confirmPart = translations[langCode]?.chat_confirm || defaultConfirm;
 
     let messageIndex = 0;
-    const typingSpeed = 60; 
+    const typingSpeed = 20; // ТУРБО-ШВИДКІСТЬ
 
     function startTyping() {
         if (messageIndex < finalMessage.length) {
@@ -243,7 +241,7 @@
             messageIndex++;
             setTimeout(startTyping, typingSpeed);
         } else {
-            chatMessage.innerHTML += confirmPart; // Резкое появление байта на почту
+            chatMessage.innerHTML += confirmPart;
             chatMessage.innerHTML += '<span class="typing-indicator">_</span>';
         }
     }
@@ -252,7 +250,7 @@
         setTimeout(() => {
             chatPopup.classList.add('show');
             startTyping();
-        }, 1000); 
+        }, 800); // З'ЯВЛЯЄТЬСЯ МАЙЖЕ ВІДРАЗУ
     });
 </script>
 
