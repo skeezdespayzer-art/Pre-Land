@@ -17,7 +17,6 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            /* ФОН: ЧОРНИЙ */
             background-color: #000; 
             color: #fff; 
             padding: 20px;
@@ -25,7 +24,6 @@
             overflow-x: hidden;
         }
 
-        /* ТАЙМЕР */
         #timer-container {
             font-size: 3em;
             font-weight: bold;
@@ -34,7 +32,6 @@
             animation: pulse 1s infinite;
         }
 
-        /* ЗАГОЛОВОК */
         h1 {
             color: #FFD700;
             font-size: 1.8em;
@@ -42,7 +39,6 @@
             min-height: 40px; 
         }
         
-        /* КНОПКА */
         .blinking-button {
             background-color: #FF0000;
             border: 5px solid #FFD700;
@@ -60,13 +56,8 @@
             animation: blinker 0.5s linear infinite;
         }
         
-        /* АНИМАЦИИ КНОПКИ/ТАЙМЕРА */
         @keyframes blinker {
-            50% {
-                background-color: #FFD700;
-                border-color: #FF0000;
-                color: #000;
-            }
+            50% { background-color: #FFD700; border-color: #FF0000; color: #000; }
         }
         
         @keyframes pulse {
@@ -75,7 +66,6 @@
             100% { transform: scale(1); }
         }
 
-        /* КАРУСЕЛЬ ИЗОБРАЖЕНИЙ (CSS SLIDER) */
         .slider-container {
             width: 90%;
             max-width: 400px;
@@ -92,27 +82,22 @@
             height: 100%;
             position: absolute;
             opacity: 0;
-            /* 9 слайдов * 2 секунды = 18 секунд */
             animation: slide-fade 18s infinite; 
             background-size: cover;
             background-position: center;
         }
 
-        /* ЗАДАЕМ ПЕРЕРЫВЫ ДЛЯ КАЖДОГО СЛАЙДА (СМЕНА КАЖДЫЕ 2 СЕК) */
-        /* === ВАШИ 9 JPG-ФАЙЛОВ === */
         .slide:nth-child(1) { background-image: url('1.jpg'); animation-delay: 0s; }
-        .slide:nth-child(2) { background-image: url('2.jpg'); animation-delay: 2s; } /* 0s + 2s */
-        .slide:nth-child(3) { background-image: url('3.jpg'); animation-delay: 4s; } /* 2s + 2s */
-        .slide:nth-child(4) { background-image: url('4.jpg'); animation-delay: 6s; } /* 4s + 2s */
-        .slide:nth-child(5) { background-image: url('5.jpg'); animation-delay: 8s; } /* 6s + 2s */
-        .slide:nth-child(6) { background-image: url('6.jpg'); animation-delay: 10s; } /* 8s + 2s */
-        .slide:nth-child(7) { background-image: url('7.jpg'); animation-delay: 12s; } /* 10s + 2s */
-        .slide:nth-child(8) { background-image: url('8.jpg'); animation-delay: 14s; } /* 12s + 2s */
-        .slide:nth-child(9) { background-image: url('9.jpg'); animation-delay: 16s; } /* 14s + 2s */
+        .slide:nth-child(2) { background-image: url('2.jpg'); animation-delay: 2s; }
+        .slide:nth-child(3) { background-image: url('3.jpg'); animation-delay: 4s; }
+        .slide:nth-child(4) { background-image: url('4.jpg'); animation-delay: 6s; }
+        .slide:nth-child(5) { background-image: url('5.jpg'); animation-delay: 8s; }
+        .slide:nth-child(6) { background-image: url('6.jpg'); animation-delay: 10s; }
+        .slide:nth-child(7) { background-image: url('7.jpg'); animation-delay: 12s; }
+        .slide:nth-child(8) { background-image: url('8.jpg'); animation-delay: 14s; }
+        .slide:nth-child(9) { background-image: url('9.jpg'); animation-delay: 16s; }
 
-        /* АНИМАЦИЯ СМЕНЫ ИЗОБРАЖЕНИЙ */
         @keyframes slide-fade {
-            /* (100% / 9) ≈ 11.11%. Держим изображение 10% времени, меняем 1.11% */
             0% { opacity: 0; }
             0.5% { opacity: 1; }  
             10.5% { opacity: 1; } 
@@ -120,18 +105,13 @@
             100% { opacity: 0; }
         }
         
-        .disclaimer {
-            font-size: 0.8em;
-            color: #AAA;
-            margin-top: 20px;
-        }
+        .disclaimer { font-size: 0.8em; color: #AAA; margin-top: 20px; }
         
-        /* СТИЛИ ФЕЙКОВОГО ЧАТА */
         #chat-popup {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 250px;
+            width: 260px;
             background: #222; 
             color: #fff; 
             border-radius: 10px;
@@ -144,15 +124,8 @@
             transition: opacity 0.5s, visibility 0.5s; 
             border: 1px solid #AAA;
         }
-        #chat-popup.show {
-            opacity: 1;
-            visibility: visible; 
-        }
-        #chat-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
+        #chat-popup.show { opacity: 1; visibility: visible; }
+        #chat-header { display: flex; align-items: center; margin-bottom: 10px; }
         .avatar {
             width: 40px;
             height: 40px;
@@ -162,23 +135,8 @@
             background-position: center;
             border: 2px solid #FFD700; 
         }
-        .model-name {
-            font-weight: bold;
-            color: #FF0000; 
-            margin-bottom: 0px; 
-        }
-        .typing-indicator {
-            display: inline-block;
-            margin-left: 5px;
-            color: #00FF00; 
-        }
-        @keyframes typing-blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        .typing-indicator span {
-            animation: typing-blink 1s infinite;
-        }
+        .model-name { font-weight: bold; color: #FF0000; margin-bottom: 0px; }
+        .typing-indicator { display: inline-block; margin-left: 5px; color: #00FF00; }
     </style>
 </head>
 <body>
@@ -203,20 +161,10 @@
     </a>
     
     <div class="slider-container">
-        <div class="slide"></div>
-        <div class="slide"></div>
-        <div class="slide"></div>
-        <div class="slide"></div>
-        <div class="slide"></div>
-        <div class="slide"></div>
-        <div class="slide"></div>
-        <div class="slide"></div>
-        <div class="slide"></div>
+        <div class="slide"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div>
     </div>
 
-    <div class="disclaimer">
-        *Access is limited to users 21 years or older. Registration is free.
-    </div>
+    <div class="disclaimer">*Access is limited to users 21 years or older. Registration is free.</div>
 
     <div id="chat-popup">
         <div id="chat-header">
@@ -227,93 +175,67 @@
     </div>
 
 <script>
-    // === СКРИПТ 1: ТАЙМЕР ===
     let duration = 60 * 2; 
     const display = document.querySelector('#timer-container');
 
     function startTimer(duration, display) {
         let timer = duration, minutes, seconds;
         const intervalId = setInterval(function () {
-            minutes = parseInt(timer / 60, 10);
-            seconds = parseInt(timer % 60, 10);
-
+            minutes = parseInt(timer / 60, 10); seconds = parseInt(timer % 60, 10);
             minutes = minutes < 10 ? "0" + minutes : minutes;
             seconds = seconds < 10 ? "0" + seconds : seconds;
-
             display.textContent = minutes + ":" + seconds;
-
-            if (--timer < 0) {
-                timer = 0; 
-                display.style.color = '#777'; 
-                clearInterval(intervalId);
-            }
+            if (--timer < 0) { timer = 0; display.style.color = '#777'; clearInterval(intervalId); }
         }, 1000);
     }
     
-    // Запуск таймера при готовности DOM
-    document.addEventListener('DOMContentLoaded', function() {
-        startTimer(duration, display);
-    });
+    document.addEventListener('DOMContentLoaded', function() { startTimer(duration, display); });
 
-    // === СКРИПТ 2: ПЕРЕВОД ПО ЯЗЫКУ БРАУЗЕРА (ДВОЙНЫЕ ПРИЗЫВЫ + БЕЗОПАСНОСТЬ) ===
     const userLang = navigator.language || navigator.userLanguage;
     const langCode = userLang.substring(0, 2).toLowerCase();
 
     const translations = {
-        // Russian / Русский
         'ru': {
             headline: "🚨 УСПЕЙ! ЭКСКЛЮЗИВНОЕ ВИДЕО И ЧАТ — БЕЗ ЦЕНЗУРЫ! 🚨",
             button: "ДА! ДОСТУП К ВИДЕО И ЧАТУ БЕСПЛАТНО",
             safety: "100% БЕСПЛАТНО, БЕЗ РЕКЛАМЫ И ВИРУСОВ", 
-            chat_msg_name: "Привет! Я Эмили. Жду твое сообщение, чтобы показать тебе свое видео. Поспеши, у меня мало времени!"
+            chat_msg_name: "Привет! Я Эмили. Я уже жду тебя в привате... 🔞",
+            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>ОБЕЩАЙ МНЕ:</span><br>После регистрации <b>обязательно подтверди почту</b>, иначе система не откроет наш чат. Я хочу прислать тебе свои личные фото сразу после этого! ❤️"
         },
-        // Germany / German
         'de': {
             headline: "🚨 LETZTER ZUGANG! VIDEO & LIVE-CHAT! 🚨",
-            button: "JA! KOSTENLOSER ZUGANG ZU VIDEO & CHAT", // ИСПРАВЛЕНО
+            button: "JA! KOSTENLOSER ZUGANG ZU VIDEO & CHAT",
             safety: "100% KOSTENLOS, KEINE WERBUNG ODER VIREN", 
-            chat_msg_name: "Hey! Ich bin Emily. Ich warte auf deine Nachricht, um dir mein Video zu zeigen. Beeil dich, ich habe nicht viel Zeit!"
+            chat_msg_name: "Hey! Ich bin Emily. Ich warte schon im Privat-Chat auf dich... 🔞",
+            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>VERSPRICH MIR:</span><br><b>Bestätige unbedingt deine E-Mail</b> nach der Anmeldung, sonst öffnet das System unseren Chat nicht. Я хочу прислать тебе свои личные фото! ❤️"
         },
-        // France / French
         'fr': {
             headline: "🚨 ACCÈS FINAL! VIDÉO ET CHAT EN DIRECT! 🚨",
             button: "OUI! ACCÈS GRATUIT AUX VIDÉOS ET AU CHAT",
             safety: "100% GRATUIT, SANS PUB ET SANS VIRUS", 
-            chat_msg_name: "Salut! Je suis Emily. J'attends ton message pour te montrer ma vidéo. Dépêche-toi, je n'ai pas beaucoup de temps!"
-        },
-        // Sweden / Swedish
-        'sv': {
-            headline: "🚨 SISTA CHАНСЕН! VIDEO OCH LIVE-CHATT! 🚨",
-            button: "JA! GRATIS ÅTKOMST TILL VIDEO OCH CHATT",
-            safety: "100% GRATIS, INGEN REKLAM ELLER VIRUS", 
-            chat_msg_name: "Hej! Jag är Emily. Jag väntar på ditt meddelande för att visa dig min video. Skynda dig, jag har inte mycket tid!"
+            chat_msg_name: "Salut! Je suis Emily. Je t'attends déjà en privé... 🔞",
+            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>PROMETS-MOI:</span><br><b>Confirme ton email</b> après l'inscription, sinon le système n'ouvrira не notre chat. Je veux t'envoyer mes photos privées! ❤️"
         }
     };
 
-    // Текст по умолчанию для языков, не входящих в список (EN)
     const defaultHeadline = "🚨 FINAL ACCESS! VIEW EXCLUSIVE VIDEO & CHAT! 🚨";
     const defaultButtonText = "YES! START FREE VIDEO & CHAT ACCESS";
     const defaultSafetyText = "100% FREE, NO ADS OR VIRUSES GUARANTEED"; 
-    const defaultChatMessage = "Hey! I'm Emily. I'm waiting for your message to show you my video. Hurry, I don't have much time!";
+    const defaultChatMessage = "Hey! I'm Emily. I'm waiting for you in private... 🔞";
+    const defaultConfirm = "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>PROMISE ME:</span><br><b>Confirm your email</b> after registration, otherwise the system won't open our chat. ❤️";
 
-    // Установка текста
     document.getElementById('main-headline').textContent = translations[langCode]?.headline || defaultHeadline;
     document.getElementById('main-button').textContent = translations[langCode]?.button || defaultButtonText;
     document.getElementById('safety-guarantee').textContent = translations[langCode]?.safety || defaultSafetyText;
-    
-    // Обновляем текст, который не переводится JS:
     document.querySelector('p[style*="FFAAAA"]').textContent = "21+ Verified Users Access Only.";
 
-    // === СКРИПТ 3: ИМИТАЦИЯ ЧАТА (ФИКС) ===
     const chatPopup = document.getElementById('chat-popup');
     const chatMessage = document.getElementById('chat-message');
-    
-    // Выбираем нужный язык для сообщения чата
     const finalMessage = translations[langCode]?.chat_msg_name || defaultChatMessage;
-
+    const confirmPart = translations[langCode]?.chat_confirm || defaultConfirm;
 
     let messageIndex = 0;
-    const typingSpeed = 70; 
+    const typingSpeed = 60; 
 
     function startTyping() {
         if (messageIndex < finalMessage.length) {
@@ -321,22 +243,17 @@
             messageIndex++;
             setTimeout(startTyping, typingSpeed);
         } else {
-            // Когда сообщение напечатано, добавляем мигающий курсор
+            chatMessage.innerHTML += confirmPart; // Резкое появление байта на почту
             chatMessage.innerHTML += '<span class="typing-indicator">_</span>';
         }
     }
 
-    // Запускаем чат через 1 секунду
     document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
-            // Гарантированное отображение
-            chatPopup.style.opacity = '1'; 
-            chatPopup.style.visibility = 'visible';
+            chatPopup.classList.add('show');
             startTyping();
         }, 1000); 
     });
-    // === КОНЕЦ СКРИПТА 3 ===
-
 </script>
 
 </body>
