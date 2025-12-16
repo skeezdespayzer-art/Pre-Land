@@ -110,11 +110,11 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 260px;
+            width: 270px;
             background: #222; 
             color: #fff; 
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
             padding: 15px;
             text-align: left;
             z-index: 1000;
@@ -206,22 +206,28 @@
             button: "JA! KOSTENLOSER ZUGANG ZU VIDEO & CHAT",
             safety: "100% KOSTENLOS, KEINE WERBUNG ODER VIREN", 
             chat_msg_name: "Hey! Ich bin Emily. Ich warte schon im Privat-Chat auf dich... 🔞",
-            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>VERSPRICH MIR:</span><br><b>Bestätige deine E-Mail</b>, sonst öffnet das System unseren Chat nicht. Ich schicke dir meine privaten Fotos! ❤️"
+            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>VERSPRICH MIR:</span><br>Nach der Anmeldung <b>musst du deine E-Mail bestätigen</b>, sonst öffnet das System unseren Chat nicht. Ich möchte dir direkt danach meine privaten Fotos schicken! ❤️"
         },
         'fr': {
             headline: "🚨 ACCÈS FINAL! VIDÉO ET CHAT EN DIRECT! 🚨",
             button: "OUI! ACCÈS GRATUIT AUX VIDÉOS ET AU CHAT",
             safety: "100% GRATUIT, SANS PUB ET SANS VIRUS", 
             chat_msg_name: "Salut! Je suis Emily. Je t'attends déjà en privé... 🔞",
-            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>PROMETS-MOI:</span><br><b>Confirme ton email</b>, sinon le système n'ouvrira не notre chat. Je veux t'envoyer mes photos privées! ❤️"
+            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>PROMETS-MOI:</span><br>Après l'inscription, <b>confirme impérativement ton email</b>, sinon le système n'ouvrira pas notre chat. Je veux t'envoyer mes photos privées juste après! ❤️"
+        },
+        'sv': {
+            headline: "🚨 SISTA CHANSEN! VIDEO OCH LIVE-CHATT! 🚨",
+            button: "JA! GRATIS ÅTKOMST TILL VIDEO OCH CHATT",
+            safety: "100% GRATIS, INGEN REKLAM ELLER VIRUS", 
+            chat_msg_name: "Hej! Jag är Emily. Jag väntar på dig i privat-chatten... 🔞",
+            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>LOVA MIG:</span><br>Efter registreringen <b>måste du bekräfta din e-post</b>, annars öppnar inte systemet vår chatt. Jag vill skicka mina privata bilder till dig direkt efteråt! ❤️"
         }
     };
 
     const defaultHeadline = "🚨 FINAL ACCESS! VIEW EXCLUSIVE VIDEO & CHAT! 🚨";
     const defaultButtonText = "YES! START FREE VIDEO & CHAT ACCESS";
-    const defaultSafetyText = "100% FREE, NO ADS OR VIRUSES GUARANTEED"; 
     const defaultChatMessage = "Hey! I'm Emily. I'm waiting for you in private... 🔞";
-    const defaultConfirm = "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>PROMISE ME:</span><br><b>Confirm your email</b>, otherwise the system won't open our chat. ❤️";
+    const defaultConfirm = "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>PROMISE ME:</span><br>After registration, <b>you must confirm your email</b>, otherwise the system won't open our chat. I want to send you my private photos right after! ❤️";
 
     document.getElementById('main-headline').textContent = translations[langCode]?.headline || defaultHeadline;
     document.getElementById('main-button').textContent = translations[langCode]?.button || defaultButtonText;
@@ -233,7 +239,7 @@
     const confirmPart = translations[langCode]?.chat_confirm || defaultConfirm;
 
     let messageIndex = 0;
-    const typingSpeed = 20; // ТУРБО-ШВИДКІСТЬ
+    const typingSpeed = 20; 
 
     function startTyping() {
         if (messageIndex < finalMessage.length) {
@@ -250,7 +256,7 @@
         setTimeout(() => {
             chatPopup.classList.add('show');
             startTyping();
-        }, 800); // З'ЯВЛЯЄТЬСЯ МАЙЖЕ ВІДРАЗУ
+        }, 800); 
     });
 </script>
 
