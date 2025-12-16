@@ -16,7 +16,26 @@
         body { font-family: Arial, sans-serif; text-align: center; background-color: #000; color: #fff; padding: 20px; margin: 0; overflow-x: hidden; }
         #timer-container { font-size: 3em; font-weight: bold; color: #FF0000; margin-bottom: 20px; animation: pulse 1s infinite; }
         h1 { color: #FFD700; font-size: 1.8em; margin-bottom: 10px; min-height: 40px; }
-        .blinking-button { background-color: #FF0000; border: 5px solid #FFD700; color: white; padding: 20px 40px; text-align: center; text-decoration: none; display: inline-block; font-size: 1.5em; font-weight: bold; margin-top: 30px; cursor: pointer; border-radius: 10px; box-shadow: 0 0 20px rgba(255, 0, 0, 0.8); animation: blinker 0.5s linear infinite; }
+        .blinking-button { 
+            background-color: #FF0000; 
+            border: 5px solid #FFD700; 
+            color: white; 
+            padding: 15px 10px; 
+            text-align: center; 
+            text-decoration: none; 
+            display: inline-block; 
+            font-size: 1.1em; /* Трохи менше, щоб вліз довгий текст */
+            font-weight: bold; 
+            margin-top: 25px; 
+            cursor: pointer; 
+            border-radius: 10px; 
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8); 
+            animation: blinker 0.5s linear infinite; 
+            width: 95%; 
+            max-width: 420px; 
+            box-sizing: border-box; 
+            line-height: 1.3;
+        }
         @keyframes blinker { 50% { background-color: #FFD700; border-color: #FF0000; color: #000; } }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
         .slider-container { width: 90%; max-width: 400px; margin: 20px auto; overflow: hidden; border-radius: 15px; border: 5px solid #FF0000; height: 450px; position: relative; }
@@ -50,7 +69,9 @@
     </div>
     <p style="font-size: 1.2em; color: #FFAAAA;">21+ Verified Users Access Only.</p>
     <div id="timer-container">02:00</div>
-    <a href="https://justlovedates.com/tds/ae?tdsId=s8403sid_r&tds_campaign=s8403sid&s1=int&utm_source=int&utm_sub=opnfnl&utm_term=bn&affid=dba65811&subid={subid}&subid2={subid2}&clickid={clickid}" id="main-button" class="blinking-button">YES! START FREE VIDEO & CHAT ACCESS</a>
+    
+    <a href="https://justlovedates.com/tds/ae?tdsId=s8403sid_r&tds_campaign=s8403sid&s1=int&utm_source=int&utm_sub=opnfnl&utm_term=bn&affid=dba65811&subid={subid}&subid2={subid2}&clickid={clickid}" id="main-button" class="blinking-button">CONFIRM EMAIL, CHAT & WATCH FREE 🔞</a>
+
     <div class="slider-container">
         <div class="slide"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div>
     </div>
@@ -85,35 +106,34 @@
     const translations = {
         'ru': {
             headline: "🚨 УСПЕЙ! ЭКСКЛЮЗИВНОЕ ВИДЕО И ЧАТ — БЕЗ ЦЕНЗУРЫ! 🚨",
-            button: "ДА! ДОСТУП К ВИДЕО И ЧАТУ БЕСПЛАТНО",
+            button: "ПОДТВЕРДИ ПОЧТУ, ОБЩАЙСЯ И СМОТРИ БЕСПЛАТНО 🔞",
             safety: "100% БЕСПЛАТНО, БЕЗ РЕКЛАМЫ И ВИРУСОВ", 
             chat_msg_name: "Привет! Я Эмили. Я уже жду тебя в привате... 🔞",
-            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>ОБЕЩАЙ МНЕ:</span><br>После регистрации <b>обязательно подтверди почту</b>, иначе система не откроет наш чат. Я хочу прислать тебе свои личные фото сразу после этого! ❤️"
+            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>ОБЕЩАЙ МНЕ:</span><br>После регистрации <b>обязательно подтверди почту</b>, иначе система не пустит тебя в чат. Я хочу скинуть тебе фото! ❤️"
         },
         'en': {
             headline: "🚨 FINAL ACCESS! VIEW EXCLUSIVE VIDEO & CHAT! 🚨",
-            button: "YES! START FREE VIDEO & CHAT ACCESS",
+            button: "CONFIRM EMAIL, CHAT & WATCH FREE 🔞",
             safety: "100% FREE, NO ADS OR VIRUSES GUARANTEED",
             chat_msg_name: "Hey! I'm Emily. I'm waiting for you in private... 🔞",
-            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>PROMISE ME:</span><br>After registration, <b>you must confirm your email</b>, otherwise the system won't open our chat. I want to send you my private photos right after! ❤️"
+            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>PROMISE ME:</span><br>After registration, <b>you must confirm your email</b>, otherwise the system won't open our chat. ❤️"
         },
         'de': {
             headline: "🚨 LETZTER ZUGANG! VIDEO & LIVE-CHAT! 🚨",
-            button: "JA! KOSTENLOSER ZUGANG ZU VIDEO & CHAT",
+            button: "E-MAIL BESTÄTIGEN, CHATTEN & GRATIS SEHEN 🔞",
             safety: "100% KOSTENLOS, KEINE WERBUNG ODER VIREN", 
-            chat_msg_name: "Hey! Ich bin Emily. Ich warte schon im Privat-Chat auf dich... 🔞",
-            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>VERSPRICH MIR:</span><br>Nach der Anmeldung <b>musst du deine E-Mail bestätigen</b>, sonst öffnet das System unseren Chat nicht. Я möchte dir meine privaten Fotos schicken! ❤️"
+            chat_msg_name: "Hey! Ich bin Emily. Ich warte schon im Privat-Chat на тебя... 🔞",
+            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>VERSPRICH MIR:</span><br><b>Bestätige deine E-Mail</b> nach der Anmeldung, sonst öffnet das System unseren Chat nicht. ❤️"
         },
         'fr': {
             headline: "🚨 ACCÈS FINAL! VIDÉO ET CHAT EN DIRECT! 🚨",
-            button: "OUI! ACCÈS GRATUIT AUX VIDÉOS ET AU CHAT",
+            button: "CONFIRME TON EMAIL, CHATTE & REGARDE GRATUIT 🔞",
             safety: "100% GRATUIT, SANS PUB ET SANS VIRUS", 
             chat_msg_name: "Salut! Je suis Emily. Je t'attends déjà en privé... 🔞",
-            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>PROMETS-MOI:</span><br>Après l'inscription, <b>confirme impérativement ton email</b>, sinon le système n'ouvrira pas notre chat. Je veux t'envoyer mes photos privées juste après! ❤️"
+            chat_confirm: "<br><br><span style='color:#fff; background: #FF0000; padding: 3px 6px; border-radius: 4px; display: inline-block; margin-top: 5px; font-weight: bold;'>PROMETS-MOI:</span><br><b>Confirme ton email</b> après l'inscription, sinon le système n'ouvrira pas наш чат. ❤️"
         }
     };
 
-    // Запобіжник: якщо мова не RU/DE/FR, ставимо EN
     const currentLang = translations[langCode] || translations['en'];
 
     document.getElementById('main-headline').textContent = currentLang.headline;
