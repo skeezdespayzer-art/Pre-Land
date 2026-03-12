@@ -1,3 +1,5 @@
 {
-  "github.copilot.chat.defaultModel": "claude-3-5-sonnet"
+  "github.copilot.chat.defaultModel": "claude-3-5-sonnet",
+  "workbench.localHistory.enabled": true,
+  "github.copilot.chat.welcomeMessage": "never"
 }
