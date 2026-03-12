@@ -4,46 +4,29 @@ A pre-landing page project.
 
 ---
 
-## VS Code & GitHub Copilot — Using Claude Models
+## VS Code & Cline — Using Claude Opus 4.6
 
-### Why is Claude Opus not available in "local" mode?
+This project is developed using the [Cline](https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev) extension for VS Code with **Claude Opus 4.6** as the active model.
 
-**Claude models (including Claude 3 Opus, Claude 3.5 Sonnet, etc.) are cloud-based API models provided by Anthropic.** They require a network connection to Anthropic's servers and cannot be downloaded or run locally on your machine.
+Claude Opus 4.6 is a real, cloud-based Anthropic model available in the Cline extension's model picker. It requires an active Anthropic API key and an internet connection.
 
-VS Code's **local inference mode** (via GitHub Copilot or extensions like Continue.dev) only supports **open-source models** that can be fully downloaded and run on your own hardware — for example, models served through [Ollama](https://ollama.com/) (Llama 3, Mistral, Phi-3, etc.).
+### Why are Cline sessions not saved?
 
-### How to use Claude in VS Code
+Cline stores every task (conversation) in VS Code's **extension global storage** — not inside the workspace folder. History is shared across all workspaces and persists as long as VS Code global storage is intact.
 
-To use a Claude model in VS Code you must use **cloud mode** (not local mode):
+Sessions appear to be lost in these situations:
 
-1. Make sure [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) is installed and you are signed in.
-2. Open Copilot Chat and click the model picker dropdown.
-3. Select a Claude model (e.g. `claude-3-5-sonnet` or `claude-3-opus`) — these are available when connected to the internet.
+1. **Cline history panel is not visible** — Click the clock/history icon at the top of the Cline sidebar to open the task history list.
 
-A `.vscode/settings.json` is included in this repository to configure the recommended default Copilot model and enable session persistence.
+2. **Global storage was cleared** — Reinstalling VS Code, resetting its storage, or running "Developer: Clear Storage" removes all saved Cline tasks permanently.
 
-### About "Claude Opus 4.6"
+3. **API provider or model ID mismatch** — If the model ID stored in a saved task no longer matches the currently configured model, Cline may fail to resume that task. Keeping a consistent `cline.apiModelId` in `.vscode/settings.json` prevents this.
 
-As of this writing, Anthropic's available model versions in GitHub Copilot are:
-- `claude-3-5-sonnet` (Claude 3.5 Sonnet — fast, high quality, recommended)
-- `claude-3-opus` (Claude 3 Opus — most powerful)
+4. **Incomplete task** — A task that was interrupted before any AI response is not always saved. Tasks with at least one completed message exchange are always written to history.
 
-"Claude Opus 4.6" is not a released model version. If you are looking for the most capable Claude model, choose **Claude 3 Opus** or **Claude 3.5 Sonnet** from the Copilot model picker.
+### How to fix session persistence
 
----
-
-### Why are Copilot Chat sessions not saved?
-
-VS Code Copilot Chat automatically saves conversation history per workspace. However, sessions **will not persist** in two common situations:
-
-1. **Invalid model identifier** — If a session was started with an unrecognized model (e.g. `claude opus 4.6`), VS Code cannot restore that session on the next launch because the model ID stored in the session data does not match any available model. The session appears lost.
-
-2. **Not signed in to GitHub Copilot** — Saved sessions are tied to your authenticated account. If you are signed out, VS Code cannot retrieve the history.
-
-#### How to fix session persistence
-
-- Use only valid, cloud-based model identifiers such as `claude-3-5-sonnet` or `claude-3-opus`. The `.vscode/settings.json` in this repository already sets the correct default.
-- Ensure you are signed in: open the Accounts menu in the VS Code status bar and verify your GitHub Copilot subscription is active.
-- Optionally, keep VS Code's local history enabled (see `.vscode/settings.json`).
-
-After switching to a valid model, new sessions will be saved and restored correctly on every VS Code restart.
+1. Open the Cline sidebar panel in VS Code and click the **history (clock) icon** to see all saved tasks.
+2. Ensure your Anthropic API key is entered and valid in the Cline extension settings.
+3. Keep the model ID consistent — this repository's `.vscode/settings.json` sets `cline.apiModelId` to `claude-opus-4-6` so every workspace session uses the same model.
+4. Do not run "Clear Storage" or reinstall VS Code unless you have exported your history first.
